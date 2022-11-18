@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#searchbar {
+  padding: 165px 0 20px 80px;
+  width: 100%;
+  background-color: #800000;
+}
+
+#searchInput {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #800000;
+
+}
+
+li {
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 2px 20px;
+  list-style-type: none;
+  padding: 4px;
+  width: fit-content;
+  transition: background-color 150ms;
+}
+
+li:visited {
+  background-color: #800000;
+}
