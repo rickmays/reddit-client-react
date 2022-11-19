@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "./reddit-logo-2436.png";
 import "./Header.css";
-import SearchBar from "./SearchBar";
 
 const Header = () => {
   return (

@@ -53,14 +53,25 @@ function Reddit() {
         </form>
       </div>
       <div id="posts">
+        <h3>
+          <span className="scoreComments">Score Comments</span> Title
+        </h3>
         <ul>
           {error
             ? error
-            : posts.map((post) => (
-                <li key={post.id}>
-                  <a href={post.url}>{post.title}</a>
-                </li>
-              ))}
+            : posts
+                .sort((a, b) => (a.score < b.score) - (a.score > b.score))
+                .map((post) => (
+                  <li key={post.id}>
+                    <span className="scoreComments">
+                      {post.score} {post.num_comments}
+                    </span>
+                    <a href={post.url} target="blank">
+                      {" "}
+                      {post.title}
+                    </a>
+                  </li>
+                ))}
         </ul>
       </div>
     </div>

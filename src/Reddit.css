@@ -8,8 +8,20 @@ html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h3 {
+  font-size: 1.4em;
+  color: #800000;
+  margin: 4px 20px;
+  padding: 4px;
+}
+
+.scoreComments {
+  font-weight: 600;
+  color: #c6c6c6;
+}
+
 #searchbar {
-  padding: 165px 0 20px 80px;
+  padding: 0 0 20px 80px;
   width: 100%;
   background-color: #800000;
 }
@@ -21,7 +33,6 @@ html {
   padding: 10px;
   font-size: 1.2em;
   color: #800000;
-
 }
 
 li {
@@ -34,6 +45,23 @@ li {
   transition: background-color 150ms;
 }
 
-li:visited {
+li:hover {
   background-color: #800000;
+}
+
+a {
+  transition: color 250ms;
+}
+
+a:link {
+  color: #800000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #800000;
+}
+
+li:hover a {
+  color: white;
 }
