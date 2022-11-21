@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import SearchBar from "./SearchBar";
+import fetchRedditPosts from "./fetchRedditPosts";
 import "./Reddit.css";
-// Destructure the 'subreddit' from props:
-function Reddit({
+
+const Reddit = ({
   inputValue,
   setInputValue,
   handleSubmit,
@@ -11,30 +12,10 @@ function Reddit({
   error,
   setError,
   subreddit,
-}) {
-  useEffect(() => {
-    // Clear the error & data before fetching new data
-    setError(null);
-    setPosts([]);
-    // Fetch posts
-    fetch(`https://www.reddit.com/r/${subreddit}.json`)
-      .then((res) => {
-        if (res.ok) {
-          return res;
-        }
-        throw new Error("Could not fetch posts");
-      })
-      .then((res) => res.json())
-      .then((json) =>
-        // Save the posts into state
-        setPosts(json.data.children.map((c) => c.data))
-      )
-      .catch((error) => {
-        // Save the error in state
-        setError(error.message);
-      });
-  }, [subreddit, setPosts, setError]);
-  //Render as usual
+}) => {
+  useEffect(() => fetchRedditPosts(subreddit, setPosts, setError), [subreddit, setPosts, setError])
+
+  // Render
   return (
     <div>
       <SearchBar
@@ -66,6 +47,6 @@ function Reddit({
       </div>
     </div>
   );
-}
+};
 
 export default Reddit;
