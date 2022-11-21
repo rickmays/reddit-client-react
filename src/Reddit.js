@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import SearchBar from "./SearchBar";
 import "./Reddit.css";
-
 // Destructure the 'subreddit' from props:
-function Reddit() {
-  // Initialize state to hold the posts
-  const [posts, setPosts] = useState([]);
-  // Initialize state to hold fetch error
-  const [error, setError] = useState(null);
-  // Initialize state to hold the input value
-  const [inputValue, setValue] = useState("javascript");
-  // Initialize state to hold the current subreddit
-  const [subreddit, setSubreddit] = useState(inputValue);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubreddit(inputValue);
-  };
-
+function Reddit({
+  inputValue,
+  setInputValue,
+  handleSubmit,
+  posts,
+  setPosts,
+  error,
+  setError,
+  subreddit,
+}) {
   useEffect(() => {
     // Clear the error & data before fetching new data
     setError(null);
@@ -38,20 +33,15 @@ function Reddit() {
         // Save the error in state
         setError(error.message);
       });
-  }, [subreddit, setPosts]);
+  }, [subreddit, setPosts, setError]);
   //Render as usual
   return (
     <div>
-      <div id="searchbar">
-        <form onSubmit={handleSubmit}>
-          <input
-            id="searchInput"
-            type="search"
-            value={inputValue}
-            onChange={(e) => setValue(e.target.value)}
-          />
-        </form>
-      </div>
+      <SearchBar
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        handleSubmit={(e) => handleSubmit(e)}
+      />
       <div id="posts">
         <h3>
           <span className="scoreComments">Score Comments</span> Title
