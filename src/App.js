@@ -8,7 +8,7 @@ const App = () => {
   // Initialize state to hold fetch error
   const [error, setError] = useState(null);
   // Initialize state to hold the input value
-  const [inputValue, setInputValue] = useState("javascript");
+  const [inputValue, setInputValue] = useState("reactjs");
   // Initialize state to hold the current subreddit
   const [subreddit, setSubreddit] = useState(inputValue);
 

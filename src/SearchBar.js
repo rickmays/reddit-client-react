@@ -6,6 +6,7 @@ const SearchBar = ({inputValue, setInputValue, handleSubmit}) => {
         id="searchInput"
         type="search"
         value={inputValue}
+        placeholder="enter subreddit"
         onChange={(e) => setInputValue(e.target.value)}
       />
     </form>
